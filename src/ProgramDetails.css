@@ -1,0 +1,8 @@
+.Program-details{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+}

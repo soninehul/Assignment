@@ -1,0 +1,9 @@
+.Directory{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 40px;
+
+}
