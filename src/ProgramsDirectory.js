@@ -12,6 +12,8 @@ function ProgramsDirectory() {
     
     const [programDetails, setProgramDetails] = useState();
     const [searchValue, setSearchValue] = useState("");
+    const [mentorCount, setMentorCount] = useState(0);
+    
 
   
     useEffect(() => {
@@ -32,7 +34,8 @@ function ProgramsDirectory() {
                     console.error("Error Fetching Data: ", error);
                 })
     }
-    
+    const mentorArray = Array.from(Array(mentorCount + 1).keys());
+
     const searchHandler = value => {
         setSearchValue(value);
       };
@@ -46,14 +49,14 @@ function ProgramsDirectory() {
     return (
         <div >
             <Switch>
-                {programDetails && programDetails.map((programData, id) => (
+                {programDetails && mentorArray.map((i, id) => (
                 <Route exact path={`/mentors/${id}`}>
                     <MentorCard id={id}/>
                 </Route>
                 ))}
                 {programDetails && programDetails.map((programData, id) => (
-                    <Route exact path={`/details/${id}`}>
-                         <ProgramDetails id={id} />
+                    <Route exact path={`/details/${id+1}`}>
+                         <ProgramDetails id={id+1} mentorCount={mentorCount} setMentorCount={setMentorCount}/>
                     </Route>
                 ))}
 

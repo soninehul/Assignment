@@ -8,7 +8,7 @@
     line-height: 120%;
     padding-right: 25px;
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
     min-height: 270px;
 }
@@ -28,7 +28,7 @@ a:link {
     background-color: rgb(252, 196, 124);
 }
 a:hover {
-    background-color: lightgreen;
+    background-color: rgb(171, 144, 233);
 }
 .program-links{
     position:relative;

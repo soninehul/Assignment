@@ -4,7 +4,7 @@ import Mentor from './Mentor';
 import './ProgramDetails.css';
 import MentorCard from './MentorCard';
 
-function ProgramsDetails({id}) {
+function ProgramsDetails({id, mentorCount, setMentorCount}) {
     
     const [programDetailData, setProgramDetailData] = useState();
     useEffect(() => {
@@ -20,6 +20,9 @@ function ProgramsDetails({id}) {
                     throw response;
                 }).then(data => {
                     setProgramDetailData(data);
+                    if(programDetailData.mentors.length > mentorCount) {
+                        setMentorCount(programDetailData.mentors.length);
+                    }
                 })
                 .catch(error => {
                     console.error("Error Fetching Data: ", error);
@@ -43,13 +46,6 @@ function ProgramsDetails({id}) {
             </ul>
             <br/>
             <h1>Program Mentors</h1>
-            {/* <Switch>
-            {programDetailData && programDetailData.mentors.map((mentor, id) => (
-            <Route exact path={`/mentors/${id}`}>
-                <MentorCard id={id}/>
-            </Route>))
-            }
-            </Switch> */}
             <div className= 'Program-details'>
             {programDetailData && programDetailData.mentors.map((mentor) => (
                          <Mentor {...mentor}/>
