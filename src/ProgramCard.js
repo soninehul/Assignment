@@ -1,9 +1,7 @@
-import { render } from "@testing-library/react";
 import React from "react";
-import { Switch, Route, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./ProgramCard.css";
-import ProgramsDirectory from "./ProgramsDirectory";
-import ProgramDetails from './ProgramDetails';
+
 
 function ProgramCard({id, name, category, shortDescription, phase, startDate, duration}) {
     return(

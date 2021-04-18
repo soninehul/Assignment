@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
 import Mentor from './Mentor';
 import './ProgramDetails.css';
-import MentorCard from './MentorCard';
 
 function ProgramsDetails({id, mentorCount, setMentorCount}) {
     
