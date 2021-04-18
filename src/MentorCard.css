@@ -1,8 +1,5 @@
 .Mentor-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    font-size: medium;
     text-align: center;
     margin-top: 40px;
 }

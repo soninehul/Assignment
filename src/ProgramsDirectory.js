@@ -3,16 +3,16 @@ import ProgramCard from './ProgramCard';
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 import ProgramDetails from './ProgramDetails';
 import './ProgramsDirectory.css' ;
-import SearchBar from './SearchBar';
 import MentorCard from './MentorCard';
+import SearchBar from './SearchBar';
 
 
 
 function ProgramsDirectory() {
     
     const [programDetails, setProgramDetails] = useState();
-    const [input, setInput] = useState('');
-    const [filteredProgramDetails, setFilteredProgramDetails]= useState();
+    const [searchValue, setSearchValue] = useState("");
+
   
     useEffect(() => {
         getDeta()
@@ -27,20 +27,21 @@ function ProgramsDirectory() {
                     throw response;
                 }).then(data => {
                     setProgramDetails(data);
-                    setFilteredProgramDetails(data);
                 })
                 .catch(error => {
                     console.error("Error Fetching Data: ", error);
                 })
     }
+    
+    const searchHandler = value => {
+        setSearchValue(value);
+      };
+    
+    let filteredPrograms = (programDetails ? programDetails : []).filter(item => {
+        return item.name.toLowerCase().includes(searchValue);
+    }, []);
 
-    const updateInput = async (input) => {
-        const filtered = programDetails.filter(program => {
-         return program.name.toLowerCase().includes(input.toLowerCase())
-        })
-        setInput(input);
-        setFilteredProgramDetails(filtered);
-     }
+
 
     return (
         <div >
@@ -58,12 +59,10 @@ function ProgramsDirectory() {
 
                 <Route exact path="/">
                     <h1>Programs Directory</h1>
-                    <SearchBar 
-                    input={input} 
-                    onChange={updateInput}
-                    />
+                    <SearchBar searchHandler={searchHandler} />
                     <div className='Directory'>
-                    {filteredProgramDetails && filteredProgramDetails.map((programData) => (
+                    {programDetails && 
+                    (searchValue === '' ? programDetails : filteredPrograms).map((programData) => (
                     <ProgramCard
                         {...programData}
                     />))}
