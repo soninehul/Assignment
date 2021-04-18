@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router";
+import { Switch, Route, Link } from "react-router-dom";
 import Mentor from './Mentor';
 import './ProgramDetails.css';
 import MentorCard from './MentorCard';
@@ -43,8 +43,15 @@ function ProgramsDetails({id}) {
                 <li>{programDetailData.programSize}</li>
             </ul>
             <h2>Program Mentors</h2>
+            {/* <Switch>
+            {programDetailData && programDetailData.mentors.map((mentor, id) => (
+            <Route exact path={`/mentors/${id}`}>
+                <MentorCard id={id}/>
+            </Route>))
+            }
+            </Switch> */}
             <div className= 'Program-details'>
-            {programDetailData.mentors.map((mentor) => (
+            {programDetailData && programDetailData.mentors.map((mentor) => (
                          <Mentor {...mentor}/>
 
                 ))}

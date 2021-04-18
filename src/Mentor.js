@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "./Mentor.css";
-import MentorCard from './MentorCard';
 
 
 function Mentor({id, firstName, lastName, profilePic, specializations, email}) {
@@ -17,14 +16,9 @@ function Mentor({id, firstName, lastName, profilePic, specializations, email}) {
                 ))}
                 <li>{specializations[0]}</li>
                 <li>{email}</li>
-                <Link to={`mentors/${id}`}>View More!</Link>
+                <Link to={`/mentors/${id}`}>View More!</Link>
             </ul>
             </div>
-            <Switch>
-            <Route exact path={`mentors/${id}`}>
-                <MentorCard id={id}/>
-            </Route>
-            </Switch>
         </div>
     )
 }

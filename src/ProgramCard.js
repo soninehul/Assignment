@@ -17,7 +17,7 @@ function ProgramCard({id, name, category, shortDescription, phase, startDate, du
                 <li>{phase}</li>
                 <li>{startDate}</li>
                 <li>{duration}</li>
-                <Link to={`/${id}`}>View More!</Link>
+                <Link to={`/details/${id}`}>View More!</Link>
             </ul>
             
             </div>

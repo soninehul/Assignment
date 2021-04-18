@@ -4,6 +4,8 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 import ProgramDetails from './ProgramDetails';
 import './ProgramsDirectory.css' ;
 import SearchBar from './SearchBar';
+import MentorCard from './MentorCard';
+
 
 
 function ProgramsDirectory() {
@@ -44,7 +46,12 @@ function ProgramsDirectory() {
         <div >
             <Switch>
                 {programDetails && programDetails.map((programData, id) => (
-                    <Route exact path={`/${id}`}>
+                <Route exact path={`/mentors/${id}`}>
+                    <MentorCard id={id}/>
+                </Route>
+                ))}
+                {programDetails && programDetails.map((programData, id) => (
+                    <Route exact path={`/details/${id}`}>
                          <ProgramDetails id={id} />
                     </Route>
                 ))}
