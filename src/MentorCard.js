@@ -12,7 +12,6 @@ function MentorCard(id) {
     
     async function getMentorData() {
         const response = await axios.get(`http://catalysed-iteration1.el.r.appspot.com/test/mentors/${num}`);
-        console.log(response.data);
         setMentorData(response.data);
     }
     return(
@@ -22,6 +21,7 @@ function MentorCard(id) {
             <h1>Mentor Details</h1> 
             {mentorData &&
             <div>
+            <img src={mentorData.profilePic} alt="Profile Picture" width= "300" height="250" ></img>
             <ul>
                 <li><h2>{mentorData.firstName} {mentorData.lastName}</h2></li>
                 {mentorData.specializations.length>0 &&
@@ -29,9 +29,12 @@ function MentorCard(id) {
                 {mentorData.specializations.map((spec) => (
                     <li>{spec}</li>
                 ))}
-                <li><b>E-mail: </b>{mentorData.email}</li>
-                <li><b>Gender: </b>{mentorData.gender}</li>
-                <li><b>Location: </b>{mentorData.location}</li>
+                <li><h4><b>E-mail: </b>{mentorData.email}</h4></li>
+                <li><h4><b>Gender: </b>{mentorData.gender}</h4></li>
+                <li><h4><b>Working Hours: </b></h4></li>
+                <li><h4><b>Strating Time: </b>{mentorData.workingHours.startTime}</h4></li>
+                <li><h4><b>Ending Time: </b>{mentorData.workingHours.endTime}</h4></li>
+                <li><h4><b>Location: </b>{mentorData.location}</h4></li>
                 
             </ul>
             </div>
