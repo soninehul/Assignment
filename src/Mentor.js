@@ -16,7 +16,6 @@ function Mentor({id, firstName, lastName, profilePic, specializations, email}) {
                 {specializations.map((spec) => (
                     <li>{spec}</li>
                 ))}
-                <li>{specializations[0]}</li>
                 <li><b>E-mail:</b> {email}</li>
                 <div className= "mentor-links">
                 <Link to={`/mentors/${id}`}>View More!</Link>
