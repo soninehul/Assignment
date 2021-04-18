@@ -57,7 +57,7 @@ function ProgramsDirectory() {
                 ))}
 
                 <Route exact path="/">
-                    <h1>ProgramsDirectory</h1>
+                    <h1>Programs Directory</h1>
                     <SearchBar 
                     input={input} 
                     onChange={updateInput}

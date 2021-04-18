@@ -31,18 +31,18 @@ function ProgramsDetails({id}) {
             <h1>ProgramsDetails</h1>
             {programDetailData && 
             <div>
-            <h4>{programDetailData.name}</h4>
+            <h2>{programDetailData.name}</h2>
             <div>
             <ul>
-                <li>{programDetailData.category}</li>
-                <li>{programDetailData.shortDescription}</li>
-                <li>{programDetailData.phase}</li>
-                <li>{programDetailData.startDate}</li>
-                <li>{programDetailData.duration}</li>
-                <li>{programDetailData.description}</li>
-                <li>{programDetailData.programSize}</li>
+                <li><h3><b>Category: </b>{programDetailData.category}</h3></li>
+                <li><h3><b>Description: </b>{programDetailData.shortDescription}</h3></li>
+                <li><h3><b>Phase: </b>{programDetailData.phase}</h3></li>
+                <li><h3><b>Start Date: </b>{programDetailData.startDate}</h3></li>
+                <li><h3><b>Duration: </b>{programDetailData.duration}</h3></li>
+                <li><h3><b>Program Size: </b>{programDetailData.programSize}</h3></li>
             </ul>
-            <h2>Program Mentors</h2>
+            <br/>
+            <h1>Program Mentors</h1>
             {/* <Switch>
             {programDetailData && programDetailData.mentors.map((mentor, id) => (
             <Route exact path={`/mentors/${id}`}>

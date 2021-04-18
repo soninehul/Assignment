@@ -11,12 +11,16 @@ function Mentor({id, firstName, lastName, profilePic, specializations, email}) {
             <div className= "mentor-list">
             <ul>
                 <li><h4>{firstName} {lastName}</h4></li>
+                {specializations.length>0 &&
+                <li><b>Specializtions:</b></li> }
                 {specializations.map((spec) => (
                     <li>{spec}</li>
                 ))}
                 <li>{specializations[0]}</li>
-                <li>{email}</li>
+                <li><b>E-mail:</b> {email}</li>
+                <div className= "mentor-links">
                 <Link to={`/mentors/${id}`}>View More!</Link>
+                </div>
             </ul>
             </div>
         </div>

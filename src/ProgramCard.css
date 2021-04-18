@@ -1,14 +1,37 @@
 .program-card{
+    background-color: rgb(252, 196, 124);
     border: 2.5px solid black;
+    color: rgba(0, 0, 0, 0.87);
     width: 250px;
     border-radius: 10px;
     text-align: center;
-    padding-right: 20px;
+    line-height: 120%;
+    padding-right: 25px;
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    min-height: 270px;
 }
 
 ul{
     list-style-type: none;
+}
+a{
+    text-decoration: none;
+    top: auto;
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 10px 20px;
+
+}
+a:link {
+    background-color: rgb(252, 196, 124);
+}
+a:hover {
+    background-color: lightgreen;
+}
+.program-links{
+    position:relative;
+    margin-top: 20px;
+    padding: 5px 5px;
 }
